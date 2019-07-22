@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button type="BUTTON" id="Lin" onclick="LoginFunction()">LOG IN</button>
+
+<div id="login" hidden="true"><br>
+<form method="post">
+  <fieldset>
+  <legend>LOG IN</legend>
+  Username:<br>
+  <input type="email" id="usrname" name="email" required>
+  <br>
+  Password:<br>
+  <input type="password" id="pwd" name="pwd" required>
+  <br><br>
+  <input type="submit" id="sbmt" value="SUBMIT">
+  <input type="reset" id="rst" value="RESET">
+  </fieldset>
+</form>
+</div>
+<br><br><br><br>
+<div id="register" hidden="true">
+<form method="post">
+  <fieldset>
+  <legend>REGISTER</legend>
+  First name:<br>
+  <input type="text" id="fname" name="firstname" required>
+  <br>
+  Last name:<br>
+  <input type="text" id="lname" name="lastname" required>
+  <br><br>
+  Date of Birth:
+  <input type="date" id="dob" name="bday" required>
+  <br>
+  Gender:<br>
+  <input type="radio" id="gm" name="gender" value="male" required>Male<br>
+  <input type="radio" id="gf" name="gender" value="female" required>Female<br>
+  <input type="radio" id="go" name="gender" value="other" required>Others<br>
+  Username:<br>
+  <input type="email" id="email" name="email" required>
+  <br>
+  Password:<br>
+  <input type="password" id="pswd" name="pwd" required>
+  <br>
+  Confirm Password:<br>
+  <input type="password" id="cpswd" name="cpwd" required>
+  <br><br>
+  <input type="submit" id="rsbmt" onclick="pwdFunction()" value="SUBMIT">
+  <input type="reset" id="rrst" value="RESET">
+  </fieldset>
+</form>
+</div>
+
+<script>
+ var n=0;
+  
+ function LoginFunction(){
+  var btn = document.getElementById("Lin");
+  var login = document.getElementById("login");
+  var reg = document.getElementById("register");
+  if(n==0){
+  n=1;
+  btn.innerHTML = "REGISTER";
+  login.hidden=false;
+  }else if(n==1){
+  n=2;
+  btn.innerHTML = "LOG IN";
+  reg.hidden=false;
+  login.hidden=true;
+  }else if(n==2){
+  n=1;
+  btn.innerHTML = "REGISTER";
+  login.hidden=false;
+  reg.hidden=true;
+  }  
+ }
+
+ function pwdFunction(){
+  var pwd = document.getElementById("pswd").value;
+  var cpwd = document.getElementById("cpswd").value;
+  if(pwd != cpwd){
+  window.alert("Passwords are not same.Check again"); 
+  }
+ }
+
+</script>
+
+</body>
+</html>
